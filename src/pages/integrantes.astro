@@ -13,12 +13,15 @@ import Fede from '../components/integrantes/Federico Gabriel-Feltrin.astro'
 import Luca from '../components/integrantes/Luca-Gambini.astro'
 import Sarlinga from '../components/integrantes/profesor/Gabriel-Sarlinga.astro'
 import Layout from '../layouts/Layout2.astro';
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 ---
 <Layout title="Integrantes del Proyecto 6to 1ra -Huerta Automatizada">
+    <Header />
     <h1 class="text-center text-6xl font-semibold pt-9">Integrantes</h1>
     <main id="filter" class="flex items-center justify-center flex-col relative h-screen">
         <h2 class="font-bold text-3xl">Profesor</h2>
-        <button id="buttonSarlinga" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 
+        <button id="buttonSarlinga" class="mt-4 px-6 py-3 bg-[#eab308] text-white font-semibold rounded-lg shadow-md hover:bg-[#eab208a7] 
         focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Sarlinga</button>
         <Sarlinga />
         <h3 class="font-bold text-3xl">Alumnado</h3>
@@ -49,6 +52,7 @@ import Layout from '../layouts/Layout2.astro';
             <button id="buttonOscar" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Oscar</button>
         </section>
     </main>
+<Footer />
 </Layout>
 <style>
     
