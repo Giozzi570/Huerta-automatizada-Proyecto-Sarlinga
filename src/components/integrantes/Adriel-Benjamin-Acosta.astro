@@ -9,28 +9,33 @@ import Gmail from '../../components/icons/gmail.astro' ;
     <div class="flex flex-col items-center w-2/3 mx-auto">
         <img src="" class="mt-7 rounded-xl" width="600px" alt="">
         <h4>Adriel Benjamín Acosta</h4>
-        <div class="flex w-60 justify-between mt-7">
-            <!-- Agrega aquí los íconos de Git, Instagram y Gmail -->
+        <div class="flex w-60 justify-center mt-7">
+            <!-- <a href="" target="_blank"><Git /></a> -->
+            <a href="https://www.instagram.com/adriel_b_a_/" target="_blank"><Instagram /></a>
+            <!-- <a href="" target="_blank"><Gmail /></a> -->
         </div>
         <i class="mt-7">Soy estudiante de la tecnica 4 de Zárate, me apasiona la electrónica, la musica y cocinar.<br>
             En un futuro me gustaría recibirme de Ingeniero y conseguir un trabajo que me apasione.
         </i><br>
         <h3>¿Qué hizo en el proyecto?</h3>
         <i class="mt-7">El estudiante realizó planos en 3d de la estructura y contribuyó en la logística del proyecto.</i>
-        <button id="closeButton" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Cerrar</button>
+        <button id="closeButtonAdriel" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Cerrar</button>
     </div>
 </section>
 <script>
     const openButton = document.querySelector("#buttonAdriel");
-    const closeButton = document.querySelector("#closeButton");
+    const closeButton = document.querySelector("#closeButtonAdriel");
     const menu = document.querySelector("#menuAdriel");
+    const body = document.querySelector("body")
 
     openButton.addEventListener("click", () => {
         menu.style.display = "block";
+        body.style.background = "#222"
     });
 
     closeButton.addEventListener("click", () => {
         menu.style.display = "none";
+        body.style.background = "initial";
     });
 </script>
 

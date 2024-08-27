@@ -8,7 +8,7 @@ import Gmail from '../../components/icons/gmail.astro' ;
 
 
 
-<section class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double">
+<section id="menuUli" class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double p-4">
     <div class="flex flex-col items-center w-2/3 mx-auto"> 
         <img src="" class="mt-7 rounded-xl" width="600px" alt="">
         <h4>Ulises Elias Aguero</h4>
@@ -17,14 +17,31 @@ import Gmail from '../../components/icons/gmail.astro' ;
             <Instagram />
             <Gmail />
         </div>
-        <i class="mt-7">Estudiante de E.E.S.T N4 Arsenal de Zárate, de la formación Técnico Electromecánico, con un fuerte de sentido de responsabilidad, buen desempeño en trabajo en equipo y paciente en la espera de buenos resultados.</i><br>
+        <i class="mt-7">.</i><br>
 <h3>¿Que hizo en el proyecto?</h3>
-<i class="mt-7">El estudiante trabajó en la parte de soldadura, soldando la estructura de la huerta en conjunto con Giozzi y Gambini. También trabajó en cortes de piezas con la amoladora y lijado de la estructura con la misma herramienta.</i>
-
+<i class="mt-7">.</i>
+<button id="closeButtonUli" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Cerrar</button>
 
     </div>
 
 </section>
+<script>
+     const openButton = document.querySelector("#buttonUli");
+    const closeButton = document.querySelector("#closeButtonUli");
+    const menu = document.querySelector("#menuUli");
+    const body = document.querySelector("body")
+
+openButton.addEventListener("click", () => {
+    menu.style.display = "block";
+    body.style.background = "#222"
+});
+
+closeButton.addEventListener("click", () => {
+    menu.style.display = "none";
+    body.style.background = "initial";
+});
+</script>
+
 <style>
 svg{
     scale: 1.6;

@@ -7,7 +7,7 @@ import Gmail from '../../../components/icons/gmail.astro' ;
 ---
 
 
-<section id="menuSarlinga" class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double my-5">
+<section id="menuSarlinga" class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double p-4">
     <div class="flex flex-col items-center w-2/3 mx-auto"> 
         <img src="" class="mt-7 rounded-xl" width="600px" alt="">
         <h4>Santiago Ruiz</h4>
@@ -29,14 +29,17 @@ Participo en el proyecto EcoYPF y soy un chico que me esfuerzo mucho en las mate
     const openButton = document.querySelector("#buttonSarlinga");
     const closeButton = document.querySelector("#closeButtonSarlinga");
     const menu = document.querySelector("#menuSarlinga");
+    const body = document.querySelector("body")
 
-    openButton.addEventListener("click", () => {
-        menu.style.display = "block";
-    });
+openButton.addEventListener("click", () => {
+    menu.style.display = "block";
+    body.style.background = "#222"
+});
 
-    closeButton.addEventListener("click", () => {
-        menu.style.display = "none";
-    });
+closeButton.addEventListener("click", () => {
+    menu.style.display = "none";
+    body.style.background = "initial";
+});
 </script>
 <style>
 svg{

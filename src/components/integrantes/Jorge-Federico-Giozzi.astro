@@ -8,7 +8,7 @@ import Gmail from '../../components/icons/gmail.astro' ;
 
 
 
-<section id="menuPichi" class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double">
+<section id="menuPichi" class="h-auto w-3/4 rounded-md  bg-[#fdecda] border-2 border-black border-double p-4">
     <div class="flex flex-col items-center w-2/3 mx-auto"> 
         <img src="" class="mt-7 rounded-xl" width="600px" alt="">
         <h4>Adriel Benjamin Acosta</h4>
@@ -18,21 +18,26 @@ import Gmail from '../../components/icons/gmail.astro' ;
             <Gmail />
         </div>
         <i class="mt-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium esse, consectetur pariatur ipsa exercitationem voluptates architecto, dolorem nihil vitae veritatis deleniti tempore reprehenderit impedit at debitis nostrum culpa blanditiis quidem.</i>
+        <button id="closeButtonPichi" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Cerrar</button>
+
     </div>
 
 </section>
 <script>
-    const button = document.querySelector("#buttonPichi");
+     const openButton = document.querySelector("#buttonPichi");
+    const closeButton = document.querySelector("#closeButtonPichi");
     const menu = document.querySelector("#menuPichi");
+    const body = document.querySelector("body")
 
-    button.addEventListener("click", () => {
-        // Alternar la visibilidad del menú
-        if (menu.style.display === "none" || menu.style.display === "") {
-            menu.style.display = "block";
-        } else {
-            menu.style.display = "none";
-        }
-    });
+openButton.addEventListener("click", () => {
+    menu.style.display = "block";
+    body.style.background = "#222"
+});
+
+closeButton.addEventListener("click", () => {
+    menu.style.display = "none";
+    body.style.background = "initial";
+});
 </script>
 <style>
 svg{
