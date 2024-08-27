@@ -1,0 +1,54 @@
+---
+import Git from '../../components/icons/git-hub.astro' ;
+import Instagram from '../../components/icons/instagram.astro' ;
+import Linkedin from '../../components/icons/linkedin.astro' ;
+import Gmail from '../../components/icons/gmail.astro' ;
+
+---
+
+
+<section id="menuGonza" class="h-auto w-3/4 rounded-md bg-[#fdecda] border-2 border-black border-double">
+    <div class="flex flex-col items-center w-2/3 mx-auto"> 
+        <img src="" class="mt-7 rounded-xl" width="600px" alt="">
+        <h4>Gonzalo Martin Dettler</h4>
+        <div class="flex w-60 justify-between mt-7">
+            <Git />
+            <Instagram />
+            <Gmail />
+        </div>
+        <i class="mt-7">Estudiante de la técnica 4 de Zárate. Tiene 18 años. Le gusta esforzarse por tener buenas notas. No es un chico problemático (dentro de la escuela).</i><br>
+<h3>¿Que hizo en el proyecto?</h3>
+<i class="mt-7">El estudiante trabajó en la parte de soldadura, soldando la estructura de la huerta en conjunto con Giozzi y Gambini. También trabajó en cortes de piezas con la amoladora y lijado de la estructura con la misma herramienta.</i>
+
+
+    </div>
+
+</section>
+
+<script>
+    const button = document.querySelector("#buttonGonza");
+    const menu = document.querySelector("#menuGonza");
+
+    button.addEventListener("click", () => {
+        // Alternar la visibilidad del menú
+        if (menu.style.display === "none" || menu.style.display === "") {
+            menu.style.display = "block";
+        } else {
+            menu.style.display = "none";
+        }
+    });
+</script>
+
+
+<style>
+svg{
+    scale: 1.6;
+}
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+</style>

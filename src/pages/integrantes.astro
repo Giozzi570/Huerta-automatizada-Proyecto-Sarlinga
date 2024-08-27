@@ -1,0 +1,60 @@
+---
+import Adriel from '../components/integrantes/Adriel-Benjamin-Acosta.astro'
+import Fausto from '../components/integrantes/Fausto-Gimenez-Roman-Shauman.astro'
+import Valen from '../components/integrantes/Valentina-Gutierrez.astro'
+import Gonza from '../components/integrantes/Gonzalo-Martin-Dettler.astro'
+import Pichi from '../components/integrantes/Jorge-Federico-Giozzi.astro'
+import Uli from '../components/integrantes/Ulises-aguero.astro'
+import Joel from '../components/integrantes/Joel-Aguilar.astro'
+import Sofi from '../components/integrantes/Sofia-Abigail-Defilipi.astro'
+import Santi from '../components/integrantes/Santiago-Ruiz.astro'
+import Oscar from '../components/integrantes/Oscar-Alejandro-Cabello-Acosta.astro'
+import Fede from '../components/integrantes/Federico Gabriel-Feltrin.astro'
+import Luca from '../components/integrantes/Luca-Gambini.astro'
+import Sarlinga from '../components/integrantes/profesor/Gabriel-Sarlinga.astro'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="integrantes.jpg">
+    <title>Integrantes</title>
+</head>
+<body>
+    <h1 class="text-center text-6xl font-semibold pt-9">Integrantes</h1>
+    <main class="flex items-center justify-center flex-col relative h-screen">
+        <h2 class="font-bold text-3xl">Profesor</h2>
+        <button id="buttonSarlinga" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 
+        focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Sarlinga</button>
+        <Sarlinga />
+        <h3 class="font-bold text-3xl">Alumnado</h3>
+        <Adriel />
+        <Fausto />
+        <Valen />
+        <Gonza />        
+        <Pichi />        
+        <Uli />        
+        <Joel />
+        <Sofi />
+        <Santi />
+        <Oscar />
+        <Fede />
+        <Luca />
+        <section id="container-buttons" class="flex flex-wrap justify-center">
+            <button id="buttonAdriel" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Adriel</button>
+            <button id="buttonFausto" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Fausto</button>
+            <button id="buttonFede" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Federico</button>
+            <button id="buttonGonza" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Gonzalo</button>
+            <button id="buttonJoel" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Joel</button>
+            <button id="buttonPichi" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Pichi</button>
+        </section>
+    </main>
+
+</body>
+</html>
+
+<style>
+    
+</style>
