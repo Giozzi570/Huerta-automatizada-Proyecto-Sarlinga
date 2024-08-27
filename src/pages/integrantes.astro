@@ -12,17 +12,9 @@ import Oscar from '../components/integrantes/Oscar-Alejandro-Cabello-Acosta.astr
 import Fede from '../components/integrantes/Federico Gabriel-Feltrin.astro'
 import Luca from '../components/integrantes/Luca-Gambini.astro'
 import Sarlinga from '../components/integrantes/profesor/Gabriel-Sarlinga.astro'
+import Layout from '../layouts/Layout2.astro';
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../public/integrantes.jpg">
-    <title>Integrantes</title>
-</head>
-<body>
+<Layout title="Integrantes del Proyecto 6to 1ra -Huerta Automatizada">
     <h1 class="text-center text-6xl font-semibold pt-9">Integrantes</h1>
     <main id="filter" class="flex items-center justify-center flex-col relative h-screen">
         <h2 class="font-bold text-3xl">Profesor</h2>
@@ -57,10 +49,7 @@ import Sarlinga from '../components/integrantes/profesor/Gabriel-Sarlinga.astro'
             <button id="buttonOscar" class="m-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300">Oscar</button>
         </section>
     </main>
-
-</body>
-</html>
-
+</Layout>
 <style>
     
 </style>
