@@ -1,37 +1,26 @@
 ---
+import Arduino from "./tecnologias/arduino.astro"
+import HTML from "./tecnologias/html.astro"
+import CSS from "./tecnologias/css.astro"
+import Javascript from "./tecnologias/javascript.astro"
+import Astrolit from "./tecnologias/astro.astro"
+import Tailwind from "./tecnologias/tailwind.astro"
+
+
 ---
 <h1 class="text-center mb-5 text-black font-semibold text-6xl" id="resumenHuerta">Preguntas</h1>
 <main>
-    <div><h4 class="text-xl text-center mb-6">¿Que tecnologías se usaron?</h4>
-        <div class="mx-auto w-2/3">
-    <p class="p-4"><span class="font-extrabold">- Arduino Uno</span>: Sirve para desarrollar elementos autónomos, o bien conectarse a otros dispositivos o interactuar con otros programas, para interactuar tanto con el hardware como con el software.
-    </p>
-    <p class="p-4"><span class="font-extrabold">- HTML</span>: Es el lenguaje de código que se utiliza para estructurar y desplegar una página web y sus contenidos. Dicho de otra manera, es el esqueleto de una página.</p>
-    <p class="p-4"><span class="font-extrabold">- CSS</span>: Es el lenguaje que permite separar el contenido HTML de su presentación visual. Es decir, te permite mantener el código HTML limpio y estructurado</p>
-    <p class="p-4"><span class="font-extrabold">- JavaScript</span>: Es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas.</p>
-    <p class="p-4"><span class="font-extrabold">- Astro</span>: es el framework web para construir sitios web orientados al contenido, como blogs, marketing y comercio electrónico.</p>
-    
-        </div>
-        <div class="flex flex-wrap justify-center">
-            <img src="../arduino.png"  class="bg-gray-300 p-5 rounded-xl h-32 w-32 m-4" alt="arduinoLogo">
-            <img src="../html.png" class="bg-gray-300 p-5 rounded-xl h-32 m-4 w-32" alt="htmlLogo">
-            <img src="../css.png" class="bg-gray-300 p-5 rounded-xl h-32 m-4 w-32" alt="cssLogo">
-            <img src="../javascript.png" class="bg-gray-300 p-5 rounded-xl h-32 m-4 w-32" alt="javaScriptLogo">
-            <img src="../favicon.svg" class="bg-gray-300 p-5 rounded-xl h-32 m-4 w-32" alt="astroLogo">
-            <img src="../tailwind.png" class="bg-gray-300 p-5 rounded-xl h-32 m-4 w-32" alt="tailwindLogo">
-        </div>
-        
+    <div><h4 class="text-xl text-center mb-6 underline">¿Que tecnologías se usaron?</h4>
+        <div class="mx-auto w-2/3 relative mt-20 flex justify-evenly flex-wrap">
+            <Arduino />
+            <HTML />
+            <CSS />
+            <Javascript />
+            <Astrolit />
+            <Tailwind />
     </div>
 </main>
 
 <style>
-    img:hover{
-        scale: 1.2;
-        transition: 300ms;
-        background-image: radial-gradient(circle at 31.7% 118.3%, #ffc54c 0, #ffb946 12.5%, #ffa93d 25%, #fe9430 37.5%, #f37b1f 50%, #e76010 62.5%, #df470c 75%, #da2e11 87.5%, #d8091a 100%);
-    }
-    img{
-        transition: 300ms;
-        border: 1px solid #000;
-    }
+
 </style>
