@@ -3,7 +3,7 @@
 
 
 <header class="flex w-full flex-col">
-    <nav class="flex text-sm font-medium text-gray-200 mx-auto items-center w-full">
+    <nav id="nav-start" class="flex text-sm font-medium text-gray-200 mx-auto items-center w-full">
         <a href="../"><img src="../hojaLogo.png"  width="70px" alt=""></a>
         <ul id="box" class="flex text-black justify-end opacity-90 p-6 w-full text-lg flex-wrap"> 
             <li class=><a href="../" class="p-2 rounded-lg opacity-90">Resumen</a></li>
@@ -13,9 +13,69 @@
             <li class=><a href="#Projects" class="p-2 rounded-lg opacity-90">Donar Aqui</a></li>
         </ul>
     </nav>
+    <nav id="nav-responsive" class="flex flex-col items-end text-lg font-medium text-black mx-auto w-full">
+        <input type="checkbox" id="menu">
+        <div class="w-full flex flex-row-reverse justify-between">
+            <label for="menu" class="scale-125"> ☰ </label>
+            <a href="../"><img src="../hojaLogo.png"  width="50px" alt=""></a>
+        </div>
+        <ul class="flex flex-col text-white justify-end opacity-90 w-full text-lg flex-wrap" >
+            <li class=><a href="../" class="p-2 rounded-lg opacity-90">Resumen</a></li>
+            <li class=><a href="/integrantes" class="p-2 rounded-lg opacity-90">Integrantes</a></li>
+            <li class=><a href="/preguntas" class="p-2 rounded-lg opacity-90">Preguntas</a></li>
+            <li class=><a href="/etapas" class="p-2 rounded-lg opacity-90">Etapas</a></li>
+            <li class=><a href="#Projects" class="p-2 rounded-lg opacity-90">Donar Aqui</a></li>
+        </ul>
+      </nav>
 <header/>
 
+
 <style>
+    #nav-responsive{
+        display: none;
+    }
+    #nav-start{
+        display: flex;
+    }
+
+    @media (max-width: 1250px){
+        #nav-start{
+            display: none;
+        }
+        #nav-responsive{
+            display: flex;
+        }
+        ul{
+  display: none;
+}
+
+input:checked  ~ ul{
+  display:block;
+}
+input {
+  display: none;
+}
+label {
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+li {
+  display: block;
+  background: #000;
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+  border-bottom: 1px solid grey;
+}
+    }
     nav{
        background: #fff;
         border-bottom: 2px solid #000;
@@ -30,5 +90,4 @@
     a{
         transition: 300ms;
     }
-
 </style>
