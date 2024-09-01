@@ -1,49 +1,43 @@
-<section id="infojavascript" class="bg-black rounded-xl text-white p-6 md:w-auto w-2/3">
-    <button><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" id="closeButtonjavascript" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-      </svg></button>
-    <p class="p-4"><span class="font-extrabold">- JavaScript</span>: Es un lenguaje de programación que los desarrolladores utilizan para hacer páginas web interactivas.
-    </p>
-
-</section>
-
-
-</div>
-<div class="flex flex-wrap justify-center">
-    <img src="../javascript.png" id="javascript" class="bg-gray-300 p-5 rounded-xl h-32 w-32 m-4" alt="javascriptLogo">
+<div id="containerjavaScript" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl h-32 w-32 m-4">
+    <img src="../javascript.png" id="javascript" class="" alt="javascriptLogo">
 </div>
 
-<script>
-    const openButton = document.querySelector("#javascript");
-   const closeButton = document.querySelector("#closeButtonjavascript");
-   const menu = document.querySelector("#infojavascript");
-   const body = document.querySelector("body")
 
-openButton.addEventListener("click", () => {
-   menu.style.display = "block";
-   body.style.background = "#222"
-});
 
-closeButton.addEventListener("click", () => {
-   menu.style.display = "none";
-   body.style.background = "initial";
-});
-</script>
-
-<style>
-    section{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: none; /* Inicialmente oculto */
-    }
-    svg{
-        scale: 1.7;
-        
-    }
-    img{
+<style> 
+    div{
         cursor: pointer;
     }
+    #containerjavaScript{
+  background: rgb(209 213 219); /* color de fondo */
+  color: #000; /* color de fuente */
+  padding: 16px 20px;
+  border-radius: 0.75rem; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#containerjavaScript::after {
+  content: "";
+  background: #4741d7; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  left: 0;
+  right: 0;
+  top: -100%;
+  bottom: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+#containerjavaScript:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
 </style>
