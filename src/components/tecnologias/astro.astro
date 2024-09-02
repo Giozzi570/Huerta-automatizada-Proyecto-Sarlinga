@@ -15,6 +15,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  transition: all 200ms;
 }
 
 #containerAstro::after {
@@ -38,5 +39,9 @@
   bottom: 0;
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
+}
+#containerAstro:hover {
+  scale: 0.95;
+  transition: all 200ms;
 }
 </style>
