@@ -1,4 +1,4 @@
-<div id="containerjavaScript" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl w-48 h-48 m-4">
+<div id="containerjavaScript" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl w-48 h-48">
     <img src="../javascript.png" id="javascript" class="" alt="javascriptLogo">
 </div>
 
@@ -17,6 +17,8 @@
   z-index: 1;
   overflow: hidden;
   transition: all 200ms;
+  height:0;
+  flex-grow: 1;
 }
 
 #containerjavaScript::after {
@@ -44,5 +46,17 @@
 #containerjavaScript:hover {
   scale: 0.95;
   transition: all 200ms;
+}
+#containerjavaScript:hover {
+  scale: 0.95;
+  height: 150px;
+  transition: all 700ms;
+}
+#containerjavaScript:hover > img {
+  object-fit: contain;
+  transition: all 700ms;
+}
+img{
+  object-fit: cover;
 }
 </style>

@@ -12,12 +12,14 @@ import Tailwind from "./tecnologias/tailwind.astro"
 <main>
     <div><h4 class="text-xl text-center mb-6 underline mt-24">¿Que tecnologías se usaron?</h4>
         <div class="mx-auto relative mt-12 flex justify-evenly flex-wrap">
-            <Arduino />
-            <HTML />
-            <CSS />
-            <Javascript />
-            <Astrolit />
-            <Tailwind />
+            <div id="container-tecno" class="flex-col items-center">
+                <Arduino />
+                <HTML />
+                <CSS />
+                <Javascript />
+                <Astrolit />
+                <Tailwind />
+            </div>
     </div>
     <div>
         <h4 class="text-xl text-center my-6 underline">¿Donde esta alojado el codigo?</h4>
@@ -88,5 +90,9 @@ import Tailwind from "./tecnologias/tailwind.astro"
 li{
     list-style-type:decimal;
     font-weight: 900;
+}
+#container-tecno{
+    display: flex;
+    width: 500px;
 }
 </style>

@@ -1,4 +1,4 @@
-<div id="containerAstro" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl w-48 h-48 m-4">
+<div id="containerAstro" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl w-48 h-48">
     <img src="../favicon.svg" id="Astro" class="" alt="astroLogo">
     <span class="font-bold">Astro</span>
 </div>
@@ -16,6 +16,9 @@
   z-index: 1;
   overflow: hidden;
   transition: all 200ms;
+  height:0;
+  flex-grow: 1;
+  object-fit: cover;
 }
 
 #containerAstro::after {
@@ -42,6 +45,17 @@
 }
 #containerAstro:hover {
   scale: 0.95;
-  transition: all 200ms;
+  height: 150px;
+  transition: all 700ms;
+}
+#containerAstro:hover > img {
+  object-fit: contain;
+  transition: all 700ms;
+}
+img{
+  object-fit: cover;
+}
+img{
+  object-fit: cover;
 }
 </style>
