@@ -8,7 +8,7 @@ import Gmail from '../../components/icons/gmail.astro' ;
 
 
 
-<section id="menuValen" class="h-auto w-11/12 rounded-md  bg-[#fdecda] border-2 border-black border-double p-4">
+<section id="menuValen" class="">
     <div class="flex flex-col items-center w-2/3 mx-auto"> 
         <img src="" class="mt-7 rounded-xl" width="600px" alt="">
         <h4>Valentina Gutierrez</h4>
@@ -32,6 +32,15 @@ import Gmail from '../../components/icons/gmail.astro' ;
     const body = document.querySelector("body")
 
 openButton.addEventListener("click", () => {
+    menu.className = "animate__animated animate__zoomIn";
+    menu.style.background = "#fdecda"
+    menu.style.display = "block";
+    menu.style.width = "91.67777%";
+    menu.style.padding = "1rem";
+    menu.style.borderColor = "#000";
+    menu.style.borderWidth = "2px";
+    menu.style.borderStyle = "double";
+    menu.style.borderRadius = "0.375rem";
     menu.style.display = "block";
     body.style.background = "#222"
 });
