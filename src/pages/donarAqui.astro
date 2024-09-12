@@ -2,24 +2,93 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro'
+import Link from '../components/icons/link.astro'
 ---
 
 <Layout title="Preguntas sobre Proyecto 6to 1ra -Huerta Automatizada">
     <Header />
-    <section class="bg-green-500 text-white px-4 h-screen flex items-center">
+    <!-- <section class="bg-green-500 text-white px-4 h-screen flex items-center">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">¡Ayúdanos a Crecer!</h2>
-            <p class="text-lg mb-8">Tu apoyo es esencial para seguir cultivando nuestra huerta y proporcionando alimentos frescos a la comunidad. Con tu donación, podemos expandir nuestras operaciones, mejorar nuestras instalaciones y ofrecer más productos.</p>
-            <button id="buttonCopiar" class="bg-white text-green-500 hover:bg-gray-200 hover:text-green-600 font-semibold py-3 px-6 rounded-lg transition duration-300">Copiado Alias de Mercado Pago</button>
-            <span id="contenidoCopiado" class="hidden">fico2007</span>
+            <h2 class="text-3xl font-bold mb-4 animate__animated animate__jackInTheBox">!Muchas gracias por ver¡</h2>
+            <h4 class="animate__animated animate__flip">Si desea apoyar el proyecto, participantes o la escuela puede dar una donación o una estrella al proyecto en el siguiente link <a href="https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga" class="text-violet-950">https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga</a> y para donaciones el siguiente QR</h4>
+            <img src="qrPrueba.png" width="300px" class="rounded-3xl mx-auto" alt="">
+            <p class="text-lg mb-8 animate__animated animate__flip h-auto">Gracias a la vida</p>
+        </div>
+    </section> -->
+    <!-- <div class="relative w-screen h-screen">
+        <div class="float-bubbles w-full h-full">
+             <section class="absolute text-white px-4 h-screen flex items-center">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4 animate__animated animate__jackInTheBox">!Muchas gracias por ver¡</h2>
+            <h4 class="animate__animated animate__flip">Si desea apoyar el proyecto, participantes o la escuela puede dar una donación o una estrella al proyecto en el siguiente link <a href="https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga" class="text-violet-950">https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga</a> y para donaciones el siguiente QR</h4>
+            <img src="qrPrueba.png" width="300px" class="rounded-3xl mx-auto" alt="">
+            <p class="text-lg mb-8 animate__animated animate__flip h-auto">Gracias a la vida</p>
         </div>
     </section>
+        </div>
+      </div> -->
+      <div>
+        <section class="absolute text-white px-4 h-screen flex items-center">
+            <div class="container mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-4 animate__animated animate__jackInTheBox">!Muchas gracias por ver¡</h2>
+                <h4 class="animate__animated animate__flip">Si desea apoyar el proyecto, participantes o la escuela puede dar una donación o una estrella al proyecto en el siguiente link <a href="https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga" class="text-violet-950">https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga</a> y para donaciones el siguiente QR</h4>
+                <img src="qrPrueba.png" width="300px" class="rounded-3xl mx-auto" alt="">
+                <p class="text-lg mb-8 animate__animated animate__flip h-auto">Gracias a la vida</p>
+            </div>
+        </section>
+        <svg id="hearts" viewBox="-600 -400 1200 800" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <symbol  id="heart" viewBox="-69 -16 138 138">
+              <path d="M0,12
+                       C 50,-30 110,50  0,120
+                       C-110,50 -50,-30 0,12z"/>
+              </symbol>
+          </defs>
+          </svg>
+      </div>
     <Footer />
-    <script>
-        let buttonCopiar = document.getElementById("buttonCopiar");
-        let copiado = document.getElementById("contenidoCopiado");
-
-        navigator.clipboard.writeText(copiado.textContent);
-        copiado.textContent = "Copiado";
-    </script>
+    <script>const colors = ["#e03776","#8f3e98","#4687bf","#3bab6f","#f9c25e","#f47274"];
+        const SVG_NS = 'http://www.w3.org/2000/svg';
+        const SVG_XLINK = "http://www.w3.org/1999/xlink";
+        
+        let heartsRy = []
+        
+        function useTheHeart(n){
+          let use = document.createElementNS(SVG_NS, 'use');
+          use.n = n;
+          use.setAttributeNS(SVG_XLINK, 'xlink:href', '#heart');
+          use.setAttributeNS(null, 'transform', `scale(${use.n})`);
+          use.setAttributeNS(null, 'fill', colors[n%colors.length]);
+          use.setAttributeNS(null, 'x', -69);
+          use.setAttributeNS(null, 'y', -69);
+          use.setAttributeNS(null, 'width', 138);
+          use.setAttributeNS(null, 'height', 138);
+          
+          heartsRy.push(use)
+          hearts.appendChild(use);
+        }
+        
+        for(let n = 18; n >= 0; n--){useTheHeart(n)}
+        
+        function Frame(){
+          window.requestAnimationFrame(Frame);
+          for(let i = 0; i < heartsRy.length; i++){
+            if(heartsRy[i].n < 18){heartsRy[i].n +=.01
+             }else{
+             heartsRy[i].n = 0;
+             hearts.appendChild(heartsRy[i])
+            }
+            heartsRy[i].setAttributeNS(null, 'transform', `scale(${heartsRy[i].n})`);
+          }
+        }
+        
+        Frame()
+        </script>
 </Layout>
+<style>
+    body{overflow:hidden;}
+svg {
+  width: 100vw;
+  height: 100vh;
+}
+</style>
