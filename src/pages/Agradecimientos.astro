@@ -20,8 +20,8 @@ import Link from '../components/icons/link.astro'
         </div>
       </div> -->
       <div>
-        <section class="absolute text-white px-4 h-screen flex items-center">
-            <div class="container mx-auto text-center">
+        <section class="absolute h-screen flex items-center">
+            <div class="container w-full flex justify-center flex-col text-center">
                 <h2 class="text-3xl font-bold mb-4 animate__animated animate__jackInTheBox">!Muchas gracias por ver¡</h2>
                 <h4 class="animate__animated animate__flip">Si desea apoyar el proyecto, participantes o la escuela puede dar una donación o una estrella al proyecto en el siguiente link <a href="https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga" class="text-violet-950">https://github.com/Giozzi570/Huerta-automatizada-Proyecto-Sarlinga</a> y para donaciones el siguiente QR</h4>
                 <img src="../qrPrueba.png" width="300px" class="rounded-3xl mx-auto" alt="">
@@ -38,7 +38,7 @@ import Link from '../components/icons/link.astro'
           </svg>
       </div>
     <Footer />
-    <script>const colors = ["#f00","#f22"];
+    <script>const colors = ["#f00","#f22","#f33","#f44"];
         const SVG_NS = 'http://www.w3.org/2000/svg';
         const SVG_XLINK = "http://www.w3.org/1999/xlink";
         
@@ -64,7 +64,7 @@ import Link from '../components/icons/link.astro'
         function Frame(){
           window.requestAnimationFrame(Frame);
           for(let i = 0; i < heartsRy.length; i++){
-            if(heartsRy[i].n < 18){heartsRy[i].n +=.01
+            if(heartsRy[i].n < 15){heartsRy[i].n +=.01
              }else{
              heartsRy[i].n = 0;
              hearts.appendChild(heartsRy[i])

@@ -1,55 +1,11 @@
-<div id="containerHtml" class="flex flex-wrap justify-center bg-gray-300 p-5 rounded-xl w-48 h-48">
+<div id="containerHtml" class="rounded-xl w-full h-full flex justify-center items-center row-span-3 col-span-full md:col-span-3 md:row-span-4">
     <img src="../html.png" id="html" class="" alt="htmlLogo">
 </div>
 
 
 <style>
-    div{
-        cursor: pointer;
-    }
-    #containerHtml{
-  background: rgb(209 213 219); /* color de fondo */
-  color: #000; /* color de fuente */
-  padding: 16px 20px;
-  border-radius: 0.75rem; /* redondear bordes */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  transition: all 200ms;
-  height:60px;
-  flex-grow: 1;
-}
-
-#containerHtml::after {
-  content: "";
-  background: #4741d7; /* color de fondo hover */
-  position: absolute;
-  z-index: -1;
-  padding: 16px 20px;
-  display: block;
-  left: 0;
-  right: 0;
-  top: -100%;
-  bottom: 100%;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-}
-#containerHtml:hover::after {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
-}
-#containerHtml:hover {
-  scale: 0.95;
-  height: 150px;
-  transition: all 700ms;
-}
-#containerHtml:hover > img {
-  object-fit: contain;
-  transition: all 700ms;
+#containerHtml{
+    box-shadow:0 2px 8px 0 rgb(32, 33, 36);
 }
 img{
   object-fit: cover;

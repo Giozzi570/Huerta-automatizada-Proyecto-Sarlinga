@@ -12,7 +12,7 @@ import Tailwind from "./tecnologias/tailwind.astro"
 <main class="animate__animated animate__flash">
     <div><h4 class="text-xl text-center mb-6 underline mt-12">¿Que tecnologías se usaron?</h4>
         <div class="mx-auto relative mt-12 flex justify-evenly flex-wrap">
-            <div id="container-tecno" class="flex-col items-center">
+            <div id="container-tecno" class="gap-8">
                 <Arduino />
                 <HTML />
                 <CSS />
@@ -88,17 +88,26 @@ import Tailwind from "./tecnologias/tailwind.astro"
 
 <style>
 li{
-    list-style-type:decimal;
     font-weight: 900;
     background: #0f0f0f47;
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
 }
-#container-tecno{
-    display: flex;
-    width: 500px;
+li:hover{
+    background: rgb(0, 0, 0);
+    color:#fff;
 }
+#container-tecno{
+    display: grid;
+    grid-template-rows:repeat(1, minmax(0px, 1fr));
+    grid-template-columns:repeat(10, minmax(0,1fr));
+}
+@media (max-width: 768px){
+    #container-tecno{
+        grid-template-rows:repeat(13, minmax(50px,100px));
+        grid-template-columns:repeat(10, minmax(0,1fr));}
+    }
 :root{
     --default-color: #fff !important; /*color principal*/
     --default-back: #000 !important; /*color de fondo*/
