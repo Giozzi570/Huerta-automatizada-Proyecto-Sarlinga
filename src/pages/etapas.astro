@@ -21,11 +21,16 @@ import Footer from '../components/Footer.astro'
                 <time class="mb-1 text-sm font-normal leading-none text-gray-700">Julio de 2024</time>
                 <h3 class="text-lg font-semibold text-gray-900">¿Diseño y modelado 3d de la estructura a trabajar?</h3>
                 <p class="mb-4 text-base font-normal text-gray-700">Los primeros diseños sobre como iba a ser la estructura a trabajar</p>
+                <p id="Deslizar" class="mb-4 text-base font-bold text-gray-900 text-center">Deslize para ver más fotos.</p>
                 <div id="imgHover">
-                    <img src="../plano2d.png" alt="">
                      <img src="../plano3d.jpg" alt="">
                      <img src="../plano3dlat.jpg" alt="">
                      <img src="../vistahorizo.jpg" alt="">
+                </div>
+                <div id="scrollHover">
+                    <img src="../plano3d.jpg" alt="">
+                    <img src="../plano3dlat.jpg" alt="">
+                    <img src="../vistahorizo.jpg" alt="">
                 </div>
                 
             </li>
@@ -33,20 +38,30 @@ import Footer from '../components/Footer.astro'
                 <div class="absolute w-3 h-3 bg-gray-900 rounded-full mt-1.5 -start-1.5 border border-white "></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-700">Julio de 2024</time>
                 <h3 class="text-lg font-semibold text-gray-900">Producción de piezas que íbamos a utilizar</h3>
+                <p id="Deslizar" class="mb-4 text-base font-bold text-gray-900 text-center">Deslize para ver más fotos.</p>
                 <div class="" id="imgHover1">
                     <img src="../mat50cm.jpg" class="" width="500px" alt="">
                     <img src="../mat70cm.jpg" class="" width="500px" alt="">
                </div>
-                
+               <div class="" id="scrollHover1">
+                <p id="Deslizar1" class="mb-4 text-base font-bold text-gray-900 text-center">Deslize para ver más fotos.</p>
+                <img src="../mat50cm.jpg" class="" width="500px" alt="">
+                <img src="../mat70cm.jpg" class="" width="500px" alt="">
+           </div>
             </li>
             <li class="mb-10 ms-4">
                 <div class="absolute w-3 h-3 bg-gray-900 rounded-full mt-1.5 -start-1.5 border border-white "></div>
                 <time class="mb-1 text-sm font-normal leading-none text-gray-700">Agosto de 2024</time>
                 <h3 class="text-lg font-semibold text-gray-900">Construcción de estructura</h3>
+                <p id="Deslizar" class="mb-4 text-base font-bold text-gray-900 text-center">Deslize para ver más fotos.</p>
                 <div class="flex" id="imgHover2">
                     <img src="../estructurabase.jpg" class="" width="400px" alt="">
                     <img src="../estructura.jpg" class="" width="600px" alt="">
                </div>
+               <div class="" id="scrollHover2">
+                <img src="../estructurabase.jpg" class="" width="400px" alt="">
+                <img src="../estructura.jpg" class="" width="600px" alt="">
+           </div>
             </li>
             <li class="mb-10 ms-4">
                 <div class="absolute w-3 h-3 bg-gray-900 rounded-full mt-1.5 -start-1.5 border border-white "></div>
@@ -67,7 +82,7 @@ import Footer from '../components/Footer.astro'
                </div>
             </li>
 
-            <p class="text-6xl text-center overflow-hidden">Continuará........</p>
+            <p class="text-6xl text-center overflow-hidden ">Continuará........</p>
 
     </ol>
     
@@ -79,12 +94,20 @@ import Footer from '../components/Footer.astro'
 </Layout>
 
 <style>
-    img:hover{
-        scale: 0.9;
-        transition: 300ms all;
+    #scrollHover{
+        display: none;
     }
-    img{
-        transition: 300ms all;
+    #scrollHover1{
+        display: none;
+    }
+    #scrollHover2{
+        display: none;
+    }
+    #Deslizar{
+        display: none;
+    }
+    #Deslizar1{
+        display: none;
     }
     #imgHover{
         display: flex;
@@ -162,4 +185,78 @@ import Footer from '../components/Footer.astro'
         object-fit: contain;
         transition: all 1s;
     }
+    @media (max-width: 768px) {
+        #Deslizar{
+        display: block;
+    }
+    #Deslizar1{
+        display: block;
+    }
+    #imgHover{
+        display: none;
+    }
+    #imgHover1{
+        display: none;
+    }
+    #imgHover2{
+        display: none;
+    }
+    #scrollHover{
+        display: flex;
+        max-width: 500px;
+        height: 300px;
+        width: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    #scrollHover img{
+        width: 100%;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+    #scrollHover1{
+        display: flex;
+        max-height: 500px;
+        width: 300px;
+        height: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+    }
+    #scrollHover1 img{
+        height: 100%;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+    #scrollHover1{
+        display: flex;
+        max-height: 500px;
+        width: 300px;
+        height: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+    }
+    #scrollHover1 img{
+        height: 100%;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+    #scrollHover2{
+        display: flex;
+        max-width: 250px;
+        height: 300px;
+        width: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+    }
+    #scrollHover2 img{
+        width: 100%;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+    
+
+
+}
 </style>
