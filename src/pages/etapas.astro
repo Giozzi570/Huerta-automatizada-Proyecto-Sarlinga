@@ -72,6 +72,11 @@ import Footer from '../components/Footer.astro'
                     <img src="../pintado2.jpeg" class="" width="400px" alt="">
                     <img src="../pintado3.jpeg" class="" width="400px" alt="">
                </div>
+               <div class="" id="scrollHover3">
+                <img src="../pintado.jpeg" class="" width="400px" alt="">
+                <img src="../pintado2.jpeg" class="" width="400px" alt="">
+                <img src="../pintado3.jpeg" class="" width="400px" alt="">
+           </div>
             </li>
             <li class="mb-10 ms-4">
                 <div class="absolute w-3 h-3 bg-gray-900 rounded-full mt-1.5 -start-1.5 border border-white "></div>
@@ -101,6 +106,9 @@ import Footer from '../components/Footer.astro'
         display: none;
     }
     #scrollHover2{
+        display: none;
+    }
+    #scrollHover3{
         display: none;
     }
     #Deslizar{
@@ -201,6 +209,9 @@ import Footer from '../components/Footer.astro'
     #imgHover2{
         display: none;
     }
+    #imgHover3{
+        display: none;
+    }
     #scrollHover{
         display: flex;
         max-width: 500px;
@@ -208,6 +219,7 @@ import Footer from '../components/Footer.astro'
         width: 100%;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        margin: auto;
     }
     #scrollHover img{
         width: 100%;
@@ -235,6 +247,7 @@ import Footer from '../components/Footer.astro'
         height: 100%;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        margin: auto;
 
     }
     #scrollHover1 img{
@@ -249,8 +262,23 @@ import Footer from '../components/Footer.astro'
         width: 100%;
         overflow-x: scroll;
         scroll-snap-type: x mandatory;
+        margin: auto;
     }
     #scrollHover2 img{
+        width: 100%;
+        object-fit: cover;
+        scroll-snap-align: center;
+    }
+    #scrollHover3{
+        display: flex;
+        max-width:200px;
+        height: 300px;
+        width: 100%;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        margin: auto;
+    }
+    #scrollHover3 img{
         width: 100%;
         object-fit: cover;
         scroll-snap-align: center;
