@@ -11,18 +11,14 @@ import Footer from '../components/Footer.astro'
     event.preventDefault();
     
     const name = document.getElementById('nombre').value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('input-password').value;
-
-    // Aquí puedes hacer una llamada a tu API para registrar al usuario
-    console.log('Registrando usuario:', { name, email, password });
+    const email = document.getElementById('emailreg').value;
     
     // Ejemplo de respuesta
     alert('Cuenta creada para ' + name);
 });
 </script>
 <script>
-    const inputPassword = document.getElementById("input-password");
+    const inputPassword = document.getElementById("passwordreg");
     const showPassword = document.getElementById("show-password")
 
 showPassword.addEventListener("click",e =>{
@@ -49,6 +45,58 @@ showPassword.addEventListener("click",e =>{
     }
 })
 </script>
+<script>
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
+import { sendEmailVerification, getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyABIXAS_f7YvG5Lv61zTZjaYtZG4q3mI_0",
+  authDomain: "app-de-prueba-b8515.firebaseapp.com",
+  projectId: "app-de-prueba-b8515",
+  storageBucket: "app-de-prueba-b8515.firebasestorage.app",
+  messagingSenderId: "829748093136",
+  appId: "1:829748093136:web:7afaf0b2ae953344fb7ed5"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Ensure "registro" element exists
+const registro = document.getElementById('registro');
+if (registro) {
+  registro.addEventListener('click', (e) => {
+    const email = document.getElementById('emailreg').value;
+    const password = document.getElementById('passwordreg').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((cred) => {
+        alert("Usuario creado");
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+            alert("Se ha enviado un correo de verificación");
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            if (errorCode === 'auth/email-already-in-use') {
+              alert('El correo ya está en uso');
+            } else if (errorCode === 'auth/invalid-email') {
+              alert('El correo es inválido');
+            } else if (errorCode === 'auth/weak-password') {
+              alert('La contraseña es muy corta');
+            } else {
+              alert('Error: ' + error.message);
+            }
+          });
+      })
+      .catch((error) => {
+        alert('Error al crear el usuario: ' + error.message);
+      });
+  });
+} else {
+  console.error("Elemento 'registro' no encontrado en el documento.");
+}
+</script>
 <Layout title="Crear cuenta">
 <header class="bg-white text-black p-4 flex items-center">
     <img src="/logo-Escuela.png" alt="Logo" class="h-12 mr-4"> <!-- Reemplaza 'tu-logo.png' con la URL de tu logo -->
@@ -72,18 +120,18 @@ showPassword.addEventListener("click",e =>{
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
+                        <input type="email" name="email" id="emailreg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
                     </div>
                     <div class="flex w-full flex-col">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
                         <div class="flex w-full">
-                            <input id="input-password" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                            <input id="passwordreg" type="password" name="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
                         <button type="button" id="show-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
                         </div>
                     </div>
                     <div class="flex items-start">
                     </div>
-                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Crear cuenta</button>
+                    <button type="submit" id="registro" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Crear cuenta</button>
                     <div class="flex flex-col xl:flex-row gap-3">
                         <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿Tiene una cuenta?<a href="/Inicio-de-sesion" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Iniciar sesión</a>
                         </p>
@@ -112,18 +160,18 @@ showPassword.addEventListener("click",e =>{
                     </div>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
+                        <input type="email" name="email" id="emailreg" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
                     </div>
                     <div class="flex w-full flex-col">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
                         <div class="flex w-full">
-                            <input id="input-password-mobile" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                            <input id="input-password-mobile" type="password" name="password" id="passwordreg" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
                         <button type="button" id="show-password-mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
                         </div>
                     </div>
                     <div class="flex items-start">
                     </div>
-                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Crear cuenta</button>
+                    <button type="submit" id="registro" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Crear cuenta</button>
                     <div class="flex flex-col gap-3">
                         <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿Tiene una cuenta?<a href="/Crear-cuenta" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Iniciar sesión</a>
                         </p>

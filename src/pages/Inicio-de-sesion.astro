@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro'
 ---
 <script>
-    const inputPassword = document.getElementById("input-password");
+    const inputPassword = document.getElementById("passwordlog");
     const showPassword = document.getElementById("show-password")
 
 showPassword.addEventListener("click",e =>{
@@ -31,6 +31,70 @@ showPassword.addEventListener("click",e =>{
     }
 })
 </script>
+<script>
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js';
+
+import {sendEmailVerification, getAuth, signInWithPopup, 
+    createUserWithEmailAndPassword, signInWithEmailAndPassword,  
+    onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js';
+  
+const firebaseConfig = {
+      apiKey: "AIzaSyABIXAS_f7YvG5Lv61zTZjaYtZG4q3mI_0",
+      authDomain: "app-de-prueba-b8515.firebaseapp.com",
+      projectId: "app-de-prueba-b8515",
+      storageBucket: "app-de-prueba-b8515.firebasestorage.app",
+      messagingSenderId: "829748093136",
+      appId: "1:829748093136:web:69265cf952477311fb7ed5"
+    };
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+const login = document.getElementById('login');
+if (login) {
+login.addEventListener('click' , (e) => {
+  var email = document.getElementById('emaillog').value;
+  var password = document.getElementById('passwordlog').value;
+
+  signInWithEmailAndPassword(auth,email,password).then(cred => {
+    alert("Usuario logeado");
+    console.log(cred.user)
+}).catch(error =>{
+  const errorCode = error.code;
+
+  if(errorCode == 'auth/invalid-email')
+    alert("El correo no es valido")
+  if(errorCode == 'auth/user-disabled')
+    alert("El usuario esta deshabilitado")
+  if(errorCode == 'auth/user-not-found')
+    alert("El usuario no fue encontrado")
+  if(errorCode == 'auth/wrong-password')
+    alert("La contaseña no es correcta")
+})
+})
+
+// cerrar.addEventListener('click', (e) => {
+//   auth.signOut().then(() => {
+//     alert("sesion cerrada");
+//   }).catch((error) => {
+//       alert("Error al iniciar sesion")
+//   })
+// })
+
+auth.onAuthStateChanged(user =>{
+  if(user){
+    console.log("Usuario activo");
+    var email = user.emailVerified;
+    if(email){
+      window.open("/#")
+    }else{
+      auth.signOut()
+    }
+  }else{
+    alert("Usuario inactivo")
+  }
+})}
+
+</script>
 <Layout title="Crear cuenta">
 <header class="bg-white text-black p-4 flex items-center">
     <img src="/logo-Escuela.png" alt="Logo" class="h-12 mr-4"> <!-- Reemplaza 'tu-logo.png' con la URL de tu logo -->
@@ -46,18 +110,18 @@ showPassword.addEventListener("click",e =>{
                 <form class="md:space-y-6" action="#">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
+                        <input type="email" name="email" id="emaillog" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
                     </div>
                     <div class="flex w-full flex-col">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
                         <div class="flex w-full">
-                            <input id="input-password" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                            <input type="password" name="password" id="passwordlog" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
                         <button type="button" id="show-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
                         </div>
                     </div>
                     <div class="flex items-start">
                     </div>
-                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar Sesión</button>
+                    <button type="submit" id="login" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar Sesión</button>
                     <div class="flex flex-col xl:flex-row gap-3">
                     <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿No tiene una cuenta?<a href="/Crear-cuenta" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Crear cuenta</a>
                     </p>
@@ -78,18 +142,18 @@ showPassword.addEventListener("click",e =>{
                 <form class="md:space-y-6 space-y-4" action="#">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
-                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
+                        <input type="email" name="email" id="emaillog" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
                     </div>
                     <div class="flex w-full flex-col">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
                         <div class="flex w-full">
-                            <input id="input-password-mobile" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                            <input id="passwordlog" type="password" name="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
                         <button type="button" id="show-password-mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
                         </div>
                     </div>
                     <div class="flex items-start">
                     </div>
-                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar sesión</button>
+                    <button type="submit" id="login" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar sesión</button>
                     <div class="flex flex-col gap-3">
                         <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿No tiene una cuenta?<a href="/Crear-cuenta" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Crear cuenta</a>
                         </p>
