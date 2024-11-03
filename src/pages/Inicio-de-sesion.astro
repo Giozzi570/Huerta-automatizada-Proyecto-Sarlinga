@@ -1,16 +1,48 @@
-<meta charset="UTF-8"/>
+
+---
+import Layout from '../layouts/Layout.astro';
+---
+<script>
+    const inputPassword = document.getElementById("input-password");
+    const showPassword = document.getElementById("show-password")
+
+showPassword.addEventListener("click",e =>{
+    if(inputPassword.type === "password"){
+        inputPassword.type = "text"
+        showPassword.innerHTML = "Ocultar"
+    }else{
+        inputPassword.type = "password"
+        showPassword.innerHTML = "Mostrar"
+    }
+})
+</script>
+<script>
+    const inputPassword = document.getElementById("input-password-mobile");
+    const showPassword = document.getElementById("show-password-mobile")
+
+showPassword.addEventListener("click",e =>{
+    if(inputPassword.type === "password"){
+        inputPassword.type = "text"
+        showPassword.innerHTML = "Ocultar"
+    }else{
+        inputPassword.type = "password"
+        showPassword.innerHTML = "Mostrar"
+    }
+})
+</script>
+<Layout title="Crear cuenta">
 <header class="bg-white text-black p-4 flex items-center">
     <img src="/logo-Escuela.png" alt="Logo" class="h-12 mr-4"> <!-- Reemplaza 'tu-logo.png' con la URL de tu logo -->
     <h1 class="text-xl font-bold">Escuela Técnica N°4 de Zárate</h1>
 </header>
-<section class="w-full">
-    <div class="flex flex-col justify-center items-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+<section id="desktop-menu">
+    <div class="flex flex-col justify-center items-center px-6 mx-auto md:h-screen lg:py-0">
         <div class="w-2/5 bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                    Inicio de sesión
+            <div class="md:space-y-6 sm:p-8">
+                <h1 class="font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                    Iniciar sesión
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form class="md:space-y-6" action="#">
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
                         <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
@@ -24,7 +56,7 @@
                     </div>
                     <div class="flex items-start">
                     </div>
-                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar sesión</button>
+                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar Sesión</button>
                     <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿No tiene una cuenta?<a href="/Crear-cuenta" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Crear cuenta</a>
                     </p>
                 </form>
@@ -32,12 +64,54 @@
         </div>
     </div>
   </section>
+<section id="mobile-menu" class="p-6 h-screen">
+    <div class="flex flex-col justify-center items-center px-6 mx-auto">
+        <div class="w-12/12 bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0">
+            <div class="p-8">
+                <h1 class="font-bold leading-tight tracking-tight text-gray-900 text-2xl mb-2 ">
+                    Iniciar sesión
+                </h1>
+                <form class="md:space-y-6 space-y-4" action="#">
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
+                        <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su correo electrónico" required="">
+                    </div>
+                    <div class="flex w-full flex-col">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
+                        <div class="flex w-full">
+                            <input id="input-password-mobile" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                        <button type="button" id="show-password-mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                    </div>
+                    <button type="submit" class="text-white bg-gradient-to-r w-full from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 shadow-lg shadow-blue-500/50 dark:shadow-lg font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 tracking-widest">Iniciar sesión</button>
+                    <p class="flex justify-center text-sm font-light w-full mx-auto text-gray-500 ">¿No tiene una cuenta?<a href="/Inicio-de-sesion" class="font-medium text-primary-600 hover:underline text-blue-400 mx-1">Crear cuenta</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</Layout>
+
 <style>
     section{
         background-image: url(foto-inicio.jpg);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+    #mobile-menu{
+            display: none;
+        }
+    @media (max-width: 1000px){
+        #desktop-menu{
+            display: none;
+        }
+        #mobile-menu{
+            display: block;
+        }
     }
 </style>
   
