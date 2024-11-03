@@ -14,6 +14,18 @@ showPassword.addEventListener("click",e =>{
 })
 </script>
 <script>
+    const inputPassword = document.getElementById("input-password-mobile");
+    const showPassword = document.getElementById("show-password-mobile")
+
+showPassword.addEventListener("click",e =>{
+    if(inputPassword.type === "password"){
+        inputPassword.type = "text"
+        showPassword.innerHTML = "Ocultar"
+    }else{
+        inputPassword.type = "password"
+        showPassword.innerHTML = "Mostrar"
+    }
+})
 </script>
 <header class="bg-white text-black p-4 flex items-center">
     <img src="/logo-Escuela.png" alt="Logo" class="h-12 mr-4"> <!-- Reemplaza 'tu-logo.png' con la URL de tu logo -->
@@ -56,11 +68,11 @@ showPassword.addEventListener("click",e =>{
         </div>
     </div>
   </section>
-<section id="mobile-menu">
-    <div class="flex flex-col justify-center items-center px-6 mx-auto h-screen">
+<section id="mobile-menu" class="p-6">
+    <div class="flex flex-col justify-center items-center px-6 mx-auto">
         <div class="w-9/12 bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0">
             <div class="p-8">
-                <h1 class="font-bold leading-tight tracking-tight text-gray-900 md:text-2xl mb-2">
+                <h1 class="font-bold leading-tight tracking-tight text-gray-900 md:text-2xl mb-2 ">
                     Crear cuenta
                 </h1>
                 <form class="md:space-y-6 space-y-4" action="#">
@@ -79,8 +91,8 @@ showPassword.addEventListener("click",e =>{
                     <div class="flex w-full flex-col">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Contraseña</label>
                         <div class="flex w-full">
-                            <input id="input-password" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
-                        <button type="button" id="show-password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
+                            <input id="input-password-mobile" type="password" name="password" id="password" placeholder="Contraseña" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5 grow" required="">
+                        <button type="button" id="show-password-mobile" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block p-2.5">Mostrar</button>
                         </div>
                     </div>
                     <div class="flex items-start">
