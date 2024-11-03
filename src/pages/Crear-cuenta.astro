@@ -73,7 +73,7 @@ showPassword.addEventListener("click",e =>{
         </div>
     </div>
   </section>
-<section id="mobile-menu" class="p-6 h-screen">
+<section id="mobile-menu" class="p-6">
     <div class="flex flex-col justify-center items-center px-6 mx-auto">
         <div class="w-12/12 bg-white rounded-lg shadow dark:border md:mt-0 xl:p-0">
             <div class="p-8">
@@ -127,6 +127,14 @@ showPassword.addEventListener("click",e =>{
         }
         #mobile-menu{
             display: block;
+        }
+    }
+    #mobile-menu{
+            height:auto;
+        }
+    @media (max-width: 500px){
+        #mobile-menu{
+            height: 100vh;
         }
     }
 </style>
