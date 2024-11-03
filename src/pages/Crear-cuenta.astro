@@ -1,8 +1,26 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro'
 ---
 
 <meta charset="UTF-8"/>
+<script>
+    document.getElementById('register-form')
+
+    .addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('input-password').value;
+
+    // Aquí puedes hacer una llamada a tu API para registrar al usuario
+    console.log('Registrando usuario:', { name, email, password });
+    
+    // Ejemplo de respuesta
+    alert('Cuenta creada para ' + name);
+});
+</script>
 <script>
     const inputPassword = document.getElementById("input-password");
     const showPassword = document.getElementById("show-password")
@@ -43,7 +61,7 @@ showPassword.addEventListener("click",e =>{
                 <h1 class="font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
                     Crear cuenta
                 </h1>
-                <form class="md:space-y-6" action="#">
+                <form class="md:space-y-6" id="register-form" action="GET">
                     <div>
                         <label for="Nombre" class="block mb-2 text-sm font-medium text-gray-900 ">Nombre y apellido</label>
                         <input type="text" name="nombre" id="nombre" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Ingrese su nombre completo" required="">
@@ -116,6 +134,7 @@ showPassword.addEventListener("click",e =>{
         </div>
     </div>
 </section>
+<Footer/>
 </Layout>
 <style>
     #mobile-menu{
